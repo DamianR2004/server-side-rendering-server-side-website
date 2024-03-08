@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+html, body{
+    overflow-x: hidden;
+    max-width:100%;
+ }
+
+
+.baseplate{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.125em;
+    
+}
+
+.houses{
+    padding: 20px;
+}
+
+.houses ul{
+    background-color: orange;
+
+}
+
+.baseplate img {
+    width:  100%;
+    height: auto;
+    max-width: 1440px;
+}
+
+
+.houses li{
+    margin-left: 10px;
+    color: white;
+    list-style-type: none;
+    padding: 10px;
+}
+
+svg{
+    height: 40px;
+}
+
+    @media screen and (min-width: 457px) {
+
+      
+        .baseplate {
+
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      
+      @media screen and (min-width: 748px) {
+        .baseplate{
+          grid-template-columns: 1fr 1fr;
+        }
+      
+      }
+      
+      
+      
+      @media screen and (min-width: 1366px) {
+        .baseplate {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+
+      @media only screen and (min-width: 776px) {
+        .menu {
+          display: none;
+        }
+    
+     
+    }
+    
+    @media  screen and (max-width:860px) {
+      .header-right li:nth-of-type(n + 1):nth-of-type(-n + 7) {
+        display: none;
+      }
+    }
