@@ -23,21 +23,32 @@ app.get('/', function(request, response) {
 	response.render('homepage')
 });
 
-app.get('/lijst', function (request, response) {
+app.get('/lijsten', function (request, response) {
     fetchJson('https://fdnd-agency.directus.app/items/f_list').then((apiData) => {
         console.log(apiData.data)
-        response.render('lijst', {data: apiData.data})
+        response.render('lijsten.ejs', {data: apiData.data})
 	});
 	
 })
 
-app.get('/favorieten', function (request, response) {
+app.get('/house', function (request, response) {
     fetchJson('https://fdnd-agency.directus.app/items/f_houses').then((apiData) => {
         console.log(apiData.data)
-        response.render('favorieten', {data: apiData.data})
+        response.render('house', {data: apiData.data})
 	});
 	
 })
+
+
+app.get('/lijsten/:id', function (request, response) {
+    fetchJson('https://fdnd-agency.directus.app/items/f_list/' + request.params.id + '?fields=*.*.*').then((apiData) => {
+        response.render('lijst.ejs', {list: apiData.data})  
+        console.log(apiData.data.houses) 
+    })
+  })
+
+
+
 
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)

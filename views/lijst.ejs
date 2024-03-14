@@ -1,7 +1,18 @@
 <%- include('./partials/top') %>
-<ul>
-    <% data.forEach(list => { %>
-      <li><%= list.title %> </li> 
+<section class="baseplate">   
+      <% list.houses.forEach(house => { %>
+   
+        
+    <article class="houses">
+    
+    <ul>
+        <li><img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>" alt="image house"></li>
+      <li><%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.house_nr_addition %></li>
+      <li><%= house.f_houses_id.postal_code %></li> 
+      <li><%= house.f_houses_id.city %></li> 
+      <li>€<%= house.f_houses_id.price %></li> 
+      <li><%= house.f_houses_id.agent %></li> 
+    </ul>
+    </article>
    <% }); %>
-
-</ul>
+</section>
